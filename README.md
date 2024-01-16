@@ -2,7 +2,7 @@
 
 **GoFrame框架扩展工具包**
 
-![gf-plus](https://img.shields.io/badge/gf-plus-ea7b99)
+![go-kit](https://img.shields.io/badge/gf-plus-ea7b99)
 ![GitHub last commit](https://img.shields.io/github/last-commit/unitsvc/go-kit?style=flat-square)
 [![Go Doc](https://godoc.org/unitsvc/go-kit?status.svg)](https://pkg.go.dev/github.com/unitsvc/go-kit)
 [![Go Report](https://goreportcard.com/badge/unitsvc/go-kit?v=1)](https://goreportcard.com/report/unitsvc/go-kit)
