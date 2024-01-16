@@ -8,8 +8,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/ziface"
-	"github.com/happylay-cloud/gf-extend/net/ztcp/zutils"
+	"github.com/unitsvc/go-kit/net/ztcp/ziface"
+	"github.com/unitsvc/go-kit/net/ztcp/zutils"
 )
 
 type Connection struct {
@@ -38,7 +38,7 @@ type Connection struct {
 	isClosed bool
 }
 
-// 创建连接的方法
+// NewConntion 创建连接的方法
 func NewConntion(server ziface.IServer, conn *net.TCPConn, connID uint32, msgHandler ziface.IMsgHandle) *Connection {
 	// 初始化Conn属性
 	c := &Connection{

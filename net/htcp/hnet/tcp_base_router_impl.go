@@ -1,10 +1,10 @@
 package hnet
 
 import (
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
 )
 
-// 实现ITcpRouter接口，自定义接口只需继承即可，或者继承后重写
+// BaseTcpRouter 实现ITcpRouter接口，自定义接口只需继承即可，或者继承后重写
 type BaseTcpRouter struct{}
 
 func (br *BaseTcpRouter) PreHandle(req hiface.ITcpRequest)  {}

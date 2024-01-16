@@ -5,9 +5,10 @@ import (
 	"github.com/gogf/gf/encoding/gjson"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/text/gstr"
-	"github.com/happylay-cloud/gf-extend/common/hcache"
-	"github.com/happylay-cloud/gf-extend/common/hutils/hctx"
-	"github.com/happylay-cloud/gf-extend/common/hutils/hstr"
+
+	"github.com/unitsvc/go-kit/common/hcache"
+	"github.com/unitsvc/go-kit/common/hutils/hctx"
+	"github.com/unitsvc/go-kit/common/hutils/hstr"
 
 	"context"
 	"encoding/json"
@@ -45,6 +46,7 @@ type ProductCodeDto struct {
 }
 
 // SearchByProductCode 根据商品条码查询商品信息，警告：此方法仅供学习参考，禁止用于商业
+//
 //	@productCode	商品条码
 //	@debug			是否开启debug
 func SearchByProductCode(productCode string, debug bool) (*ProductCodeDto, error) {

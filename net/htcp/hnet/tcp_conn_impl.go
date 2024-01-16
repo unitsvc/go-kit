@@ -8,8 +8,9 @@ import (
 	"sync"
 
 	"github.com/gogf/gf/frame/g"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hutils"
+
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
+	"github.com/unitsvc/go-kit/net/htcp/hutils"
 )
 
 type TcpConnection struct {
@@ -38,7 +39,7 @@ type TcpConnection struct {
 	isClosed bool
 }
 
-// 创建连接的方法
+// NewTcpConnection 创建连接的方法
 func NewTcpConnection(server hiface.ITcpServer, conn *net.TCPConn, connID int64, pkgHandler hiface.ITcpPkgHandle) *TcpConnection {
 	// 初始化Conn属性
 	c := &TcpConnection{
@@ -131,9 +132,10 @@ func (c *TcpConnection) StartReader() {
 }
 
 // SendTcpPkg 发送tcp数据包
-//  @pkgBodyType 数据类型
-//  @pkg         数据内容（自定义结构体对象）
-//  @userBuf     是否启动缓冲（默认关闭）
+//
+//	@pkgBodyType 数据类型
+//	@pkg         数据内容（自定义结构体对象）
+//	@userBuf     是否启动缓冲（默认关闭）
 func (c *TcpConnection) SendTcpPkg(pkgBodyType byte, pkg interface{}, userBuf ...bool) error {
 	// 数据序列化
 	bytes, err := json.Marshal(pkg)

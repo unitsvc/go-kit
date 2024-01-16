@@ -1,8 +1,10 @@
 package hjs
 
 import (
-	"github.com/gogf/gf/frame/g"
+	"strings"
 	"testing"
+
+	"github.com/gogf/gf/frame/g"
 )
 
 func TestGetJsCookie(t *testing.T) {
@@ -23,7 +25,7 @@ func TestGetJsCookie(t *testing.T) {
 	bts := item["bts"]
 	chars := item["chars"]
 
-	cookie, err := GetJsCookie(chars, bts, ct, ha, tn)
+	cookie, err := GetJsCookie(chars, strings.Split(bts, ","), ct, ha, tn)
 	if err != nil {
 		return
 	}

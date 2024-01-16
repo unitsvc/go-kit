@@ -2,8 +2,9 @@ package hnet
 
 import (
 	"github.com/gogf/gf/frame/g"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hutils"
+
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
+	"github.com/unitsvc/go-kit/net/htcp/hutils"
 )
 
 type PkgHandle struct {

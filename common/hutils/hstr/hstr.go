@@ -2,9 +2,10 @@ package hstr
 
 import (
 	"bytes"
-	"github.com/gogf/gf/text/gstr"
 	"strconv"
 	"strings"
+
+	"github.com/gogf/gf/text/gstr"
 )
 
 // TrimBlank 删除字符串首尾空白

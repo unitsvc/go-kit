@@ -1,8 +1,9 @@
 package hid
 
 import (
-	"github.com/gogf/gf/frame/g"
 	"sync"
+
+	"github.com/gogf/gf/frame/g"
 )
 
 var once sync.Once

@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/zlog"
+	"github.com/unitsvc/go-kit/net/ztcp/zlog"
 )
 
 // tips:
@@ -29,7 +29,7 @@ type TimeWheel struct {
 	// 每个刻度所存放的timer定时器的最大容量
 	maxCap int
 	// 当前时间轮上的所有timer
-	timerQueue map[int]map[uint32]*Timer //map[int] VALUE  其中int表示当前时间轮的刻度,
+	timerQueue map[int]map[uint32]*Timer // map[int] VALUE  其中int表示当前时间轮的刻度,
 	// map[int] map[uint32] *Timer, uint32表示Timer的id号
 	// 下一层时间轮
 	nextTimeWheel *TimeWheel
@@ -38,10 +38,11 @@ type TimeWheel struct {
 }
 
 // NewTimeWheel 创建一个时间轮
-//  @name 时间轮的名称
-//  @interval 每个刻度之间的duration时间间隔
-//  @scales 当前时间轮的轮盘一共多少个刻度(如我们正常的时钟就是12个刻度)
-//  @maxCap 每个刻度所最大保存的Timer定时器个数
+//
+//	@name 时间轮的名称
+//	@interval 每个刻度之间的duration时间间隔
+//	@scales 当前时间轮的轮盘一共多少个刻度(如我们正常的时钟就是12个刻度)
+//	@maxCap 每个刻度所最大保存的Timer定时器个数
 func NewTimeWheel(name string, interval int64, scales int, maxCap int) *TimeWheel {
 	tw := &TimeWheel{
 		name:       name,
@@ -60,13 +61,14 @@ func NewTimeWheel(name string, interval int64, scales int, maxCap int) *TimeWhee
 }
 
 // addTimer 将一个timer定时器加入到分层时间轮中
-//  @tid 每个定时器timer的唯一标识
-//  @t 当前被加入时间轮的定时器
-//  @forceNext 是否强制的将定时器添加到下一层时间轮
-//  我们采用的算法是：
-//  如果当前timer的超时时间间隔大于一个刻度，那么进行hash计算找到对应的刻度上添加
-//  如果当前的timer的超时时间间隔小于一个刻度：
-//  如果没有下一轮时间轮
+//
+//	@tid 每个定时器timer的唯一标识
+//	@t 当前被加入时间轮的定时器
+//	@forceNext 是否强制的将定时器添加到下一层时间轮
+//	我们采用的算法是：
+//	如果当前timer的超时时间间隔大于一个刻度，那么进行hash计算找到对应的刻度上添加
+//	如果当前的timer的超时时间间隔小于一个刻度：
+//	如果没有下一轮时间轮
 func (tw *TimeWheel) addTimer(tid uint32, t *Timer, forceNext bool) error {
 	defer func() error {
 		if err := recover(); err != nil {
@@ -170,13 +172,13 @@ func (tw *TimeWheel) run() {
 	}
 }
 
-// 非阻塞的方式让时间轮转起来
+// Run 非阻塞的方式让时间轮转起来
 func (tw *TimeWheel) Run() {
 	go tw.run()
 	zlog.Info("时间轮 name = ", tw.name, "正在运行...")
 }
 
-// 获取定时器在一段时间间隔内的Timer
+// GetTimerWithIn 获取定时器在一段时间间隔内的Timer
 func (tw *TimeWheel) GetTimerWithIn(duration time.Duration) map[uint32]*Timer {
 	// 最终触发定时器的一定是挂载最底层时间轮上的定时器
 	// 1 找到最底层时间轮

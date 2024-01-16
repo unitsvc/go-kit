@@ -3,14 +3,16 @@ package hweb
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"github.com/happylay-cloud/gf-extend/common/hresp"
+
+	"github.com/unitsvc/go-kit/common/hresp"
 )
 
 // MiddlewareErrorHandler 全局后置中间件捕获异常
-//  示例：
-//  s := g.Server()
-//  s.Plugin(&swagger.Swagger{})
-//  s.Use(hweb.MiddlewareErrorHandler)
+//
+//	示例：
+//	s := g.Server()
+//	s.Plugin(&swagger.Swagger{})
+//	s.Use(hweb.MiddlewareErrorHandler)
 func MiddlewareErrorHandler(r *ghttp.Request) {
 	r.Middleware.Next()
 	if err := r.GetError(); err != nil {

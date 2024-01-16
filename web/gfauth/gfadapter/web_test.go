@@ -5,7 +5,8 @@ import (
 
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"github.com/happylay-cloud/gf-extend/common/hresp"
+
+	"github.com/unitsvc/go-kit/common/hresp"
 )
 
 func TestGf(t *testing.T) {

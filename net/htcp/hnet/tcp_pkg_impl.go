@@ -8,18 +8,19 @@ import (
 	"time"
 
 	"github.com/gogf/gf/frame/g"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
+
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
 )
 
 // Package 数据包
 type Package struct {
-	//--------------------------消息头Head------------------------------
+	// --------------------------消息头Head------------------------------
 	// ----版本数据长度2B + 密钥长度2B + 加密数据长度2B + 签名数据长度2B ----
 	VersionLength int16 // 版本数据长度，2B
 	KeyLength     int16 // 加密密钥长度，2B
 	DataLength    int16 // 数据部分长度，2B
 	SignLength    int16 // 签名数据长度，2B
-	//--------------------------消息体Body---------------------=--------
+	// --------------------------消息体Body---------------------=--------
 	Version  []byte // Tcp协议版本
 	dataType byte   // 内容类型，0x00：none，0x01：json，0x02：bin，1B
 	key      []byte // 加密密钥，Ras加密Aes客户端密钥
@@ -27,7 +28,7 @@ type Package struct {
 	// --------------------------签名---------------------------------
 	Timestamp int32  // 时间戳，4B
 	Signature []byte // 加密数据签名，数据 + 时间进行签名。
-	//-----------------------------------------------------------------
+	// -----------------------------------------------------------------
 }
 
 func (p *Package) GetPkg() []byte {
@@ -54,8 +55,9 @@ func (p *Package) GetHandlerRouter() string {
 }
 
 // NewPackage 构建数据包封包对象
-//  @dataType 0x00：none，0x01：json，0x02：bin
-//  @data 数据内容
+//
+//	@dataType 0x00：none，0x01：json，0x02：bin
+//	@data 数据内容
 func NewPackage(dataType byte, data []byte) *Package {
 
 	version := []byte("默认版本号")
@@ -159,7 +161,7 @@ func (p *Package) UnpackHead(binaryData []byte) (*Package, error) {
 	return p, nil
 }
 
-// Unpack 拆包body（解压数据）
+// UnpackBody 拆包body（解压数据）
 func (p *Package) UnpackBody(binaryData []byte) (*Package, error) {
 
 	// 创建一个从输入二进制数据的ioReader

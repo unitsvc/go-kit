@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/ziface"
-	"github.com/happylay-cloud/gf-extend/net/ztcp/zlog"
+	"github.com/unitsvc/go-kit/net/ztcp/ziface"
+	"github.com/unitsvc/go-kit/net/ztcp/zlog"
 )
 
 // GlobalObj 存储一切有关框架的全局参数，供其他模块使用，用户也可以通过根据tcp.json来配置
@@ -54,7 +54,7 @@ func PathExists(path string) (bool, error) {
 func (global *GlobalObj) Reload() {
 
 	if confFileExists, _ := PathExists(global.ConfFilePath); confFileExists != true {
-		//fmt.Println("配置文件", global.ConfFilePath , "不存在！")
+		// fmt.Println("配置文件", global.ConfFilePath , "不存在！")
 		return
 	}
 

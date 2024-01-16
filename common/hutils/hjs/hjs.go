@@ -4,8 +4,9 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
-	"github.com/gogf/gf/encoding/gjson"
 	"strings"
+
+	"github.com/gogf/gf/encoding/gjson"
 
 	"github.com/dop251/goja"
 	"github.com/gogf/gf/crypto/gmd5"

@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/znet"
+	"github.com/unitsvc/go-kit/net/ztcp/znet"
 )
 
 // TestTcpClient 模拟客户端

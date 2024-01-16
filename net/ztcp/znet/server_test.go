@@ -7,11 +7,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/ziface"
+	"github.com/unitsvc/go-kit/net/ztcp/ziface"
 )
 
 // ClientTest 模拟客户端
-//  go test -v ./znet -run=TestServer
+//
+//	go test -v ./znet -run=TestServer
 func ClientTest(i uint32) {
 
 	fmt.Println("启动客户端测试...")
@@ -68,7 +69,8 @@ func ClientTest(i uint32) {
 }
 
 // PingRouter 模拟服务器端
-//  测试自定义路由
+//
+//	测试自定义路由
 type PingRouter struct {
 	BaseRouter
 }

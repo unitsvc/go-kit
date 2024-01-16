@@ -6,7 +6,8 @@ import (
 
 	"github.com/gogf/gf/frame/g"
 	"github.com/golang/protobuf/proto"
-	"github.com/happylay-cloud/gf-extend/common/hgrpc/test/pb"
+
+	"github.com/unitsvc/go-kit/common/hgrpc/test/pb"
 )
 
 func TestHgrpc(t *testing.T) {

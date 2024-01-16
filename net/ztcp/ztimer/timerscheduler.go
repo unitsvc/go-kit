@@ -5,18 +5,19 @@ import (
 	"sync"
 	"time"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/zlog"
+	"github.com/unitsvc/go-kit/net/ztcp/zlog"
 )
 
 const (
-	// 默认缓冲触发函数队列大小
+	// MAX_CHAN_BUFF 默认缓冲触发函数队列大小
 	MAX_CHAN_BUFF = 2048
-	// 默认最大误差时间
+	// MAX_TIME_DELAY 默认最大误差时间
 	MAX_TIME_DELAY = 100
 )
 
 // TimerScheduler 时间轮调度器
-//  依赖模块，delayfunc.go timer.go timewheel.go
+//
+//	依赖模块，delayfunc.go timer.go timewheel.go
 type TimerScheduler struct {
 	// 当前调度器的最高级时间轮
 	tw *TimeWheel
@@ -31,7 +32,8 @@ type TimerScheduler struct {
 }
 
 // NewTimerScheduler 返回一个定时器调度器
-//  主要创建分层定时器，并做关联，并依次启动
+//
+//	主要创建分层定时器，并做关联，并依次启动
 func NewTimerScheduler() *TimerScheduler {
 
 	// 创建秒级时间轮
@@ -57,7 +59,7 @@ func NewTimerScheduler() *TimerScheduler {
 	}
 }
 
-// 创建一个定点Timer 并将Timer添加到分层时间轮中， 返回Timer的tid
+// CreateTimerAt 创建一个定点Timer 并将Timer添加到分层时间轮中， 返回Timer的tid
 func (this *TimerScheduler) CreateTimerAt(df *DelayFunc, unixNano int64) (uint32, error) {
 	this.Lock()
 	defer this.Unlock()
@@ -67,7 +69,7 @@ func (this *TimerScheduler) CreateTimerAt(df *DelayFunc, unixNano int64) (uint32
 	return this.idGen, this.tw.AddTimer(this.idGen, NewTimerAt(df, unixNano))
 }
 
-// 创建一个延迟Timer 并将Timer添加到分层时间轮中， 返回Timer的tid
+// CreateTimerAfter 创建一个延迟Timer 并将Timer添加到分层时间轮中， 返回Timer的tid
 func (this *TimerScheduler) CreateTimerAfter(df *DelayFunc, duration time.Duration) (uint32, error) {
 	this.Lock()
 	defer this.Unlock()
@@ -77,12 +79,12 @@ func (this *TimerScheduler) CreateTimerAfter(df *DelayFunc, duration time.Durati
 	return this.idGen, this.tw.AddTimer(this.idGen, NewTimerAfter(df, duration))
 }
 
-// 删除timer
+// CancelTimer 删除timer
 func (this *TimerScheduler) CancelTimer(tid uint32) {
 	this.Lock()
 	this.Unlock()
-	//this.tw.RemoveTimer(tid) 这个方法无效
-	//删除timerId
+	// this.tw.RemoveTimer(tid) 这个方法无效
+	// 删除timerId
 	var index = -1
 	for i := 0; i < len(this.ids); i++ {
 		if this.ids[i] == tid {
@@ -95,7 +97,7 @@ func (this *TimerScheduler) CancelTimer(tid uint32) {
 	}
 }
 
-// 获取计时结束的延迟执行函数通道
+// GetTriggerChan 获取计时结束的延迟执行函数通道
 func (this *TimerScheduler) GetTriggerChan() chan *DelayFunc {
 	return this.triggerChan
 }
@@ -109,7 +111,7 @@ func (this *TimerScheduler) HasTimer(tid uint32) bool {
 	return false
 }
 
-// 非阻塞的方式启动timerSchedule
+// Start 非阻塞的方式启动timerSchedule
 func (this *TimerScheduler) Start() {
 	go func() {
 		for {

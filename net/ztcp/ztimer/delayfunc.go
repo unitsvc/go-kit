@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/happylay-cloud/gf-extend/net/ztcp/zlog"
+	"github.com/unitsvc/go-kit/net/ztcp/zlog"
 )
 
 // DelayFunc 定义一个延迟调用函数
-//  延迟调用函数就是 时间定时器超时的时候，触发的事先注册好的回调函数
+//
+//	延迟调用函数就是 时间定时器超时的时候，触发的事先注册好的回调函数
 type DelayFunc struct {
 	f    func(...interface{}) // f : 延迟函数调用原型
 	args []interface{}        // args: 延迟调用函数传递的形参

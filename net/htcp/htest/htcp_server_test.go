@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hnet"
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
+	"github.com/unitsvc/go-kit/net/htcp/hnet"
 )
 
 // 创建连接的时候执行

@@ -24,7 +24,7 @@ func TestCreateJwtToken(t *testing.T) {
 		Password: "123456",
 		StandardClaims: jwt.StandardClaims{
 			// 默认精确到微妙
-			//ExpiresAt: jwt.At(time.Now().Add(60 * time.Second)),
+			// ExpiresAt: jwt.At(time.Now().Add(60 * time.Second)),
 			// 自定义精确到秒
 			ExpiresAt: &jwt.Time{
 				Time: time.Now().Truncate(time.Second),

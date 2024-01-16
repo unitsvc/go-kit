@@ -5,7 +5,8 @@ import (
 	"sync"
 
 	"github.com/gogf/gf/frame/g"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
+
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
 )
 
 // ConnTcpManager 连接管理模块

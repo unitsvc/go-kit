@@ -3,22 +3,22 @@
 **GoFrame框架扩展工具包**
 
 ![gf-plus](https://img.shields.io/badge/gf-plus-ea7b99)
-![GitHub last commit](https://img.shields.io/github/last-commit/happylay-cloud/gf-extend?style=flat-square)
-[![Go Doc](https://godoc.org/happylay-cloud/gf-extend?status.svg)](https://pkg.go.dev/github.com/happylay-cloud/gf-extend)
-[![Go Report](https://goreportcard.com/badge/happylay-cloud/gf-extend?v=1)](https://goreportcard.com/report/happylay-cloud/gf-extend)
-[![Production Ready](https://img.shields.io/badge/production-ready-blue.svg)](https://github.com/happylay-cloud/gf-extend)
-[![License](https://img.shields.io/github/license/happylay-cloud/gf-extend.svg?style=flat)](https://github.com/happylay-cloud/gf-extend)
+![GitHub last commit](https://img.shields.io/github/last-commit/unitsvc/go-kit?style=flat-square)
+[![Go Doc](https://godoc.org/unitsvc/go-kit?status.svg)](https://pkg.go.dev/github.com/unitsvc/go-kit)
+[![Go Report](https://goreportcard.com/badge/unitsvc/go-kit?v=1)](https://goreportcard.com/report/unitsvc/go-kit)
+[![Production Ready](https://img.shields.io/badge/production-ready-blue.svg)](https://github.com/unitsvc/go-kit)
+[![License](https://img.shields.io/github/license/unitsvc/go-kit.svg?style=flat)](https://github.com/unitsvc/go-kit)
 
 #### **安装**
 
-> go get -u -v -d github.com/happylay-cloud/gf-extend
+> go get -u -v -d github.com/unitsvc/go-kit
 
 `指定版本`
-> go get github.com/happylay-cloud/gf-extend@v1.3.1
+> go get github.com/unitsvc/go-kit@latest
 
 **或**
 
-> require github.com/happylay-cloud/gf-extend latest
+> require github.com/unitsvc/go-kit latest
 
 #### 实例化gf-casbin实例bean（推荐使用）
 

@@ -1,7 +1,7 @@
 package hid
 
 import (
-	"github.com/happylay-cloud/gf-extend/common/hutils/htime"
+	"github.com/unitsvc/go-kit/common/hutils/htime"
 
 	"fmt"
 	"testing"

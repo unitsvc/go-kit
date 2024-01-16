@@ -3,7 +3,8 @@ package zlog
 import "os"
 
 // StdZinxLog 全局日志对象
-//  全局默认提供一个Log对外句柄，可以直接使用API系列调用
+//
+//	全局默认提供一个Log对外句柄，可以直接使用API系列调用
 var StdZinxLog = NewZinxLog(os.Stderr, "", BitDefault)
 
 // Flags 获取StdZinxLog标记位
@@ -11,7 +12,7 @@ func Flags() int {
 	return StdZinxLog.Flags()
 }
 
-// 设置StdZinxLog标记位
+// ResetFlags 设置StdZinxLog标记位
 func ResetFlags(flag int) {
 	StdZinxLog.ResetFlags(flag)
 }

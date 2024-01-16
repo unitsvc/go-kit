@@ -4,7 +4,7 @@ import (
 	"go.uber.org/dig"
 )
 
-// 全局bean上下文
+// ApplicationContext 全局bean上下文
 var ApplicationContext BeanFactory
 
 // BeanFactory 定义bean容器工厂

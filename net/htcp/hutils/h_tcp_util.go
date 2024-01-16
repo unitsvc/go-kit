@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/happylay-cloud/gf-extend/net/htcp/hiface"
+	"github.com/unitsvc/go-kit/net/htcp/hiface"
 )
 
 // HTcpGlobalConfig 全局配置

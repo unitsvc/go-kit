@@ -7,7 +7,8 @@ import (
 	"time"
 
 	"github.com/gogf/gf/frame/g"
-	"github.com/happylay-cloud/gf-extend/net/htcp/hnet"
+
+	"github.com/unitsvc/go-kit/net/htcp/hnet"
 )
 
 // TestTcpClient 模拟客户端

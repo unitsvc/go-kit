@@ -9,8 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/happylay-cloud/gf-extend/common/hgrpc/test/message"
 	"google.golang.org/grpc"
+
+	"github.com/unitsvc/go-kit/common/hgrpc/test/message"
 )
 
 // TestServer 服务端

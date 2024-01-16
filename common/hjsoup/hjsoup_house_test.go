@@ -2,8 +2,9 @@ package hjsoup
 
 import (
 	"fmt"
-	"github.com/gogf/gf/frame/g"
 	"testing"
+
+	"github.com/gogf/gf/frame/g"
 )
 
 func TestHeFeiFangJiaPage(t *testing.T) {
