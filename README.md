@@ -2,7 +2,7 @@
 
 **GoFrame框架扩展工具包**
 
-![go-kit](https://img.shields.io/badge/gf-plus-ea7b99)
+![go-kit](https://img.shields.io/badge/go-kit-ea7b99)
 ![GitHub last commit](https://img.shields.io/github/last-commit/unitsvc/go-kit?style=flat-square)
 [![Go Doc](https://godoc.org/unitsvc/go-kit?status.svg)](https://pkg.go.dev/github.com/unitsvc/go-kit)
 [![Go Report](https://goreportcard.com/badge/unitsvc/go-kit?v=1)](https://goreportcard.com/report/unitsvc/go-kit)
@@ -24,13 +24,13 @@
 
 * **自动注册（无需关心数据源种类）**
 
-```
+```go
 e, err := gfadapter.NewEnforcerBean()
 ```
 
 * **手动注册**
 
-```markdown
+```go
 e, err := gfadapter.NewEnforcerBean(g.DB())
 e, err := gfadapter.NewEnforcerBean(g.DB("sqlite"))
 e, err := gfadapter.NewEnforcerBean(g.DB("mysql"))
@@ -41,13 +41,13 @@ e, err := gfadapter.NewEnforcerBean(g.DB("pgsql"))
 
 * **自动注册**
 
-```
+```go
 e, err := gfadapter.NewEnforcer()
 ```
 
 * **手动注册**
 
-```
+```go
 e, err := gfadapter.NewEnforcer(g.DB())
 e, err := gfadapter.NewEnforcer(g.DB("mysql"))
 e, err := gfadapter.NewEnforcer(g.DB("sqlite"))
@@ -56,19 +56,19 @@ e, err := gfadapter.NewEnforcer(g.DB("pgsql"))
 
 #### 解压二进制中单文件到本地
 
-```
+```go
 gfboot.SingleFileMemoryToLocal("./db", "sqlite3.db", "db/sqlite3.db")
 ```
 
 #### 获取web响应对象
 
-```
+```go
 hres.Ok()
 ```
 
 #### 获取page分页对象
 
-```
+```go
 hdto.NewPage()
 ```
 
